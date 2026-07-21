@@ -1,8 +1,0 @@
-0000000000000000000000000000000000000000 aa58940a4ff971fa5157adefb9a617d5704c0e51 DavAlo <dave3000ea@gmail.com> 1780112410 -0300	branch: Created from main
-aa58940a4ff971fa5157adefb9a617d5704c0e51 c2a63d1f176fced9626d78a5e34427f30962afe5 DavAlo <dave3000ea@gmail.com> 1780588941 -0300	pull origin dev: Fast-forward
-c2a63d1f176fced9626d78a5e34427f30962afe5 b00e2625baff6f47dc6c20803937dbae0f237ed8 DavAlo <dave3000ea@gmail.com> 1780973678 -0300	pull: Fast-forward
-b00e2625baff6f47dc6c20803937dbae0f237ed8 c041326b3a1241c93ea8fd23d164265c938b69dc DavAlo <dave3000ea@gmail.com> 1780978049 -0300	commit: correccion
-c041326b3a1241c93ea8fd23d164265c938b69dc 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1781042378 -0300	pull: Fast-forward
-45325d953b0bd09253935b70b937ec54ac163353 0a96c1a4c63c3910fde1d2689ba1ca174d17b163 DavAlo <dave3000ea@gmail.com> 1782938490 -0300	pull: Fast-forward
-0a96c1a4c63c3910fde1d2689ba1ca174d17b163 afb6a3d6d8e0627da94dbac53a837565a72affc0 DavAlo <dave3000ea@gmail.com> 1782939584 -0300	commit: Arregla selectores y titulos esperados en test de login Cypress
-afb6a3d6d8e0627da94dbac53a837565a72affc0 ecf2b496bb50faca0bff88bcacae6734e891b979 DavAlo <dave3000ea@gmail.com> 1782944339 -0300	commit: Agrega tests E2E y arregla bug de borrado de mensaje de exito
