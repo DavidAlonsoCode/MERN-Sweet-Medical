@@ -1,0 +1,65 @@
+0000000000000000000000000000000000000000 aa58940a4ff971fa5157adefb9a617d5704c0e51 DavAlo <dave3000ea@gmail.com> 1780112338 -0300	clone: from https://github.com/ddsw-mn/2026-1c-frontend-mn-grupo-08.git
+aa58940a4ff971fa5157adefb9a617d5704c0e51 aa58940a4ff971fa5157adefb9a617d5704c0e51 DavAlo <dave3000ea@gmail.com> 1780112419 -0300	checkout: moving from main to dev
+aa58940a4ff971fa5157adefb9a617d5704c0e51 aa58940a4ff971fa5157adefb9a617d5704c0e51 DavAlo <dave3000ea@gmail.com> 1780112729 -0300	checkout: moving from dev to feature/estructura-inicial
+aa58940a4ff971fa5157adefb9a617d5704c0e51 a1021e99854e3018431cfb5de52e2434174be5eb DavAlo <dave3000ea@gmail.com> 1780115757 -0300	commit: carpetas
+a1021e99854e3018431cfb5de52e2434174be5eb 021dc7152be7f195aaa6ff11847d863b5bf8912c DavAlo <dave3000ea@gmail.com> 1780177866 -0300	commit: como para tener
+021dc7152be7f195aaa6ff11847d863b5bf8912c 5d4a5cc1c208f0e4828b4c75e58fd29e7b7dd659 DavAlo <dave3000ea@gmail.com> 1780178195 -0300	commit: turnos
+5d4a5cc1c208f0e4828b4c75e58fd29e7b7dd659 0be8b939931c56f098d9d6eff5625d7e8a544fd0 DavAlo <dave3000ea@gmail.com> 1780178367 -0300	commit: paciente
+0be8b939931c56f098d9d6eff5625d7e8a544fd0 5e766b79e0167351b339ead7f31efd86f5193b9f DavAlo <dave3000ea@gmail.com> 1780248620 -0300	commit: package modifico
+5e766b79e0167351b339ead7f31efd86f5193b9f ef1631fe8cfce263486d64b82cb5aa1968f37fbe DavAlo <dave3000ea@gmail.com> 1780545489 -0300	checkout: moving from feature/estructura-inicial to fix-filtros-busqueda
+ef1631fe8cfce263486d64b82cb5aa1968f37fbe ef1631fe8cfce263486d64b82cb5aa1968f37fbe DavAlo <dave3000ea@gmail.com> 1780585637 -0300	checkout: moving from fix-filtros-busqueda to fix-del-fix-filtros-busqueda
+ef1631fe8cfce263486d64b82cb5aa1968f37fbe 4fa5ae844918c1aead1935962f428b546063ec5c DavAlo <dave3000ea@gmail.com> 1780587020 -0300	commit: filtro de busqueda funciona
+4fa5ae844918c1aead1935962f428b546063ec5c 4fa5ae844918c1aead1935962f428b546063ec5c DavAlo <dave3000ea@gmail.com> 1780587061 -0300	reset: moving to HEAD
+4fa5ae844918c1aead1935962f428b546063ec5c ed63e7fc0d47fb325d7eb6656c9b7f1211105f35 DavAlo <dave3000ea@gmail.com> 1780587346 -0300	commit: filtro de busqueda funciona
+ed63e7fc0d47fb325d7eb6656c9b7f1211105f35 488fa6c07290f1733bd1328fcee80653a7e9348f DavAlo <dave3000ea@gmail.com> 1780587452 -0300	commit: borro .idea
+488fa6c07290f1733bd1328fcee80653a7e9348f aa58940a4ff971fa5157adefb9a617d5704c0e51 DavAlo <dave3000ea@gmail.com> 1780588133 -0300	checkout: moving from fix-del-fix-filtros-busqueda to dev
+aa58940a4ff971fa5157adefb9a617d5704c0e51 5e766b79e0167351b339ead7f31efd86f5193b9f DavAlo <dave3000ea@gmail.com> 1780588208 -0300	checkout: moving from dev to feature/estructura-inicial
+5e766b79e0167351b339ead7f31efd86f5193b9f aa58940a4ff971fa5157adefb9a617d5704c0e51 DavAlo <dave3000ea@gmail.com> 1780588913 -0300	checkout: moving from feature/estructura-inicial to dev
+aa58940a4ff971fa5157adefb9a617d5704c0e51 c2a63d1f176fced9626d78a5e34427f30962afe5 DavAlo <dave3000ea@gmail.com> 1780588941 -0300	pull origin dev: Fast-forward
+c2a63d1f176fced9626d78a5e34427f30962afe5 d4a8cca36e1ad10298584d4c121da84fe27b1a27 DavAlo <dave3000ea@gmail.com> 1780684601 -0300	checkout: moving from dev to feature/ui-disponibilidades
+d4a8cca36e1ad10298584d4c121da84fe27b1a27 c2a63d1f176fced9626d78a5e34427f30962afe5 DavAlo <dave3000ea@gmail.com> 1780686422 -0300	checkout: moving from feature/ui-disponibilidades to dev
+c2a63d1f176fced9626d78a5e34427f30962afe5 036e8adf581daff3bd93fec2cb4f10828637d579 DavAlo <dave3000ea@gmail.com> 1780709201 -0300	checkout: moving from dev to feature/historial-turnos
+036e8adf581daff3bd93fec2cb4f10828637d579 c5e04d0addb0e0ccd0ead77c560b94b5fcb8444b DavAlo <dave3000ea@gmail.com> 1780711274 -0300	pull: Fast-forward
+c5e04d0addb0e0ccd0ead77c560b94b5fcb8444b c2a63d1f176fced9626d78a5e34427f30962afe5 DavAlo <dave3000ea@gmail.com> 1780801980 -0300	checkout: moving from feature/historial-turnos to dev
+c2a63d1f176fced9626d78a5e34427f30962afe5 b00e2625baff6f47dc6c20803937dbae0f237ed8 DavAlo <dave3000ea@gmail.com> 1780973678 -0300	pull: Fast-forward
+b00e2625baff6f47dc6c20803937dbae0f237ed8 c041326b3a1241c93ea8fd23d164265c938b69dc DavAlo <dave3000ea@gmail.com> 1780978049 -0300	commit: correccion
+c041326b3a1241c93ea8fd23d164265c938b69dc 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1781042378 -0300	pull: Fast-forward
+45325d953b0bd09253935b70b937ec54ac163353 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1781133257 -0300	checkout: moving from dev to feature/etiquetas-aria
+45325d953b0bd09253935b70b937ec54ac163353 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1781133278 -0300	checkout: moving from feature/etiquetas-aria to dev
+45325d953b0bd09253935b70b937ec54ac163353 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1781133288 -0300	checkout: moving from dev to dev
+45325d953b0bd09253935b70b937ec54ac163353 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1781133295 -0300	checkout: moving from dev to feature/etiquetas-aria
+45325d953b0bd09253935b70b937ec54ac163353 79d871e29e59c4582c7ecc19acf58fba097ac4a4 DavAlo <dave3000ea@gmail.com> 1781136046 -0300	commit: etiquetas aria
+79d871e29e59c4582c7ecc19acf58fba097ac4a4 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1782313678 -0300	checkout: moving from feature/etiquetas-aria to dev
+45325d953b0bd09253935b70b937ec54ac163353 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1782314404 -0300	checkout: moving from dev to cambiando_disenio
+45325d953b0bd09253935b70b937ec54ac163353 3d9e9fdec738c514d700535377a1186abf49a688 DavAlo <dave3000ea@gmail.com> 1782326628 -0300	commit: mejor color, mejor diseño, carrito, transiciones, animaciones
+3d9e9fdec738c514d700535377a1186abf49a688 5537de725f62df289878c23fa6901013967810d3 DavAlo <dave3000ea@gmail.com> 1782327488 -0300	commit: correccion
+5537de725f62df289878c23fa6901013967810d3 9f4d4c33676000e874dfe822a33917b9bb6baff4 DavAlo <dave3000ea@gmail.com> 1782872290 -0300	checkout: moving from cambiando_disenio to rama-deploy-ft
+9f4d4c33676000e874dfe822a33917b9bb6baff4 7ee0ca03878fdaf1a85b9a31a7d3772695f572c7 DavAlo <dave3000ea@gmail.com> 1782875230 -0300	commit: fix: correcciones UI en navbar, login y perfil medico mobile
+7ee0ca03878fdaf1a85b9a31a7d3772695f572c7 065943f924d9511dffedc307b5a0592517367f4c DavAlo <dave3000ea@gmail.com> 1782877345 -0300	commit: fix: mejoras en navbar, login y rediseño de tabs en perfiles mobile
+065943f924d9511dffedc307b5a0592517367f4c e04075739b6fc3ca329a0eb8afacaa2a53b05443 DavAlo <dave3000ea@gmail.com> 1782877823 -0300	commit: fix: resolver desaparición del ícono de contraseña en login
+e04075739b6fc3ca329a0eb8afacaa2a53b05443 7f5ac3ac198cf827c65c1bf2493a2340acc63fbb DavAlo <dave3000ea@gmail.com> 1782878158 -0300	commit: fix: hacer que el boton de datos personales de paciente ocupe el ancho completo en PC
+7f5ac3ac198cf827c65c1bf2493a2340acc63fbb af7e729ae7214fdda4a30c479619cdc2d645d3bd DavAlo <dave3000ea@gmail.com> 1782879503 -0300	commit: fix: orden cronologico inverso de turnos en medico y paciente, y color del paginador de paciente corregido
+af7e729ae7214fdda4a30c479619cdc2d645d3bd 36d3d8e873ae9af5851899aa047193762a36d03c DavAlo <dave3000ea@gmail.com> 1782879798 -0300	commit: fix: resolver error de backend al cambiar estado y dar mayor opacidad a los mensajes flash
+36d3d8e873ae9af5851899aa047193762a36d03c 44a442a87634461e2e0cdb29bcc87ecb9904961e DavAlo <dave3000ea@gmail.com> 1782880093 -0300	commit: fix: implementar paginacion local y purgar chevrons redundantes
+44a442a87634461e2e0cdb29bcc87ecb9904961e 63b595e73a6db59f5a0fd947f3e1849da90bfe68 DavAlo <dave3000ea@gmail.com> 1782880436 -0300	commit: fix: restaurar botones chevron personalizados de paginacion
+63b595e73a6db59f5a0fd947f3e1849da90bfe68 1de58d5dfcd45dc5f250384dd2d6a5f67d0fc116 DavAlo <dave3000ea@gmail.com> 1782880722 -0300	commit: fix: alinear y adaptar paginador con el nuevo boceto del boton en pildora
+1de58d5dfcd45dc5f250384dd2d6a5f67d0fc116 e03da24325c9bac150e4e1f3aebb40dd6244b76d DavAlo <dave3000ea@gmail.com> 1782881036 -0300	commit: fix: extraer solo IDs de subdocumentos y formatear string de fecha en payloads de turnos
+e03da24325c9bac150e4e1f3aebb40dd6244b76d 291f576bf3fcfba8a875e1d57dffaa383b7ef948 DavAlo <dave3000ea@gmail.com> 1782881305 -0300	commit: fix: extraer fechas en formato UTC para evitar corrimientos por zona horaria local
+291f576bf3fcfba8a875e1d57dffaa383b7ef948 511db3944cc0b5b3ee7b3544f015f35193772bbc DavAlo <dave3000ea@gmail.com> 1782881520 -0300	commit: fix: usar metodo DELETE para cancelar turnos desde la agenda del medico
+511db3944cc0b5b3ee7b3544f015f35193772bbc e64289958cec96b704e3678916b94a216c440127 DavAlo <dave3000ea@gmail.com> 1782882125 -0300	commit: feat: agregar popup flotante y polling de notificaciones; ocultar botón cancelar para turnos pasados
+e64289958cec96b704e3678916b94a216c440127 00202d9a1e87ae13841089ff752f7895b5ca85ac DavAlo <dave3000ea@gmail.com> 1782882322 -0300	commit: revert: eliminar popup flotante y polling de notificaciones
+00202d9a1e87ae13841089ff752f7895b5ca85ac ac85102770214cb16e21fbb894ca720aa5935391 DavAlo <dave3000ea@gmail.com> 1782883869 -0300	commit: test: agregar test E2E con Cypress para cumplir requerimiento de Entrega 4
+ac85102770214cb16e21fbb894ca720aa5935391 5e919da2874489e24e8884b983a88c5245368f21 DavAlo <dave3000ea@gmail.com> 1782929389 -0300	commit: feat: Add ARIA labels to icon buttons for accessibility
+5e919da2874489e24e8884b983a88c5245368f21 4855de665ab5ca41981c8be429166f759275fe8d DavAlo <dave3000ea@gmail.com> 1782934873 -0300	commit: Agrega comentarios de documentacion en el frontend
+4855de665ab5ca41981c8be429166f759275fe8d 45325d953b0bd09253935b70b937ec54ac163353 DavAlo <dave3000ea@gmail.com> 1782938480 -0300	checkout: moving from rama-deploy-ft to dev
+45325d953b0bd09253935b70b937ec54ac163353 0a96c1a4c63c3910fde1d2689ba1ca174d17b163 DavAlo <dave3000ea@gmail.com> 1782938490 -0300	pull: Fast-forward
+0a96c1a4c63c3910fde1d2689ba1ca174d17b163 0a96c1a4c63c3910fde1d2689ba1ca174d17b163 DavAlo <dave3000ea@gmail.com> 1782938705 -0300	checkout: moving from dev to dev
+0a96c1a4c63c3910fde1d2689ba1ca174d17b163 afb6a3d6d8e0627da94dbac53a837565a72affc0 DavAlo <dave3000ea@gmail.com> 1782939584 -0300	commit: Arregla selectores y titulos esperados en test de login Cypress
+afb6a3d6d8e0627da94dbac53a837565a72affc0 ecf2b496bb50faca0bff88bcacae6734e891b979 DavAlo <dave3000ea@gmail.com> 1782944339 -0300	commit: Agrega tests E2E y arregla bug de borrado de mensaje de exito
+ecf2b496bb50faca0bff88bcacae6734e891b979 4855de665ab5ca41981c8be429166f759275fe8d DavAlo <dave3000ea@gmail.com> 1782944481 -0300	checkout: moving from dev to rama-deploy-ft
+4855de665ab5ca41981c8be429166f759275fe8d 360003b4089c7b6044e879367403fabbb7a5718f DavAlo <dave3000ea@gmail.com> 1782945523 -0300	commit: fix: declarar variable dnis antes de usarla en AgendaMedico
+360003b4089c7b6044e879367403fabbb7a5718f ecf2b496bb50faca0bff88bcacae6734e891b979 DavAlo <dave3000ea@gmail.com> 1782945840 -0300	checkout: moving from rama-deploy-ft to dev
+ecf2b496bb50faca0bff88bcacae6734e891b979 360003b4089c7b6044e879367403fabbb7a5718f DavAlo <dave3000ea@gmail.com> 1784428550 -0300	checkout: moving from dev to rama-deploy-ft
+360003b4089c7b6044e879367403fabbb7a5718f aa58940a4ff971fa5157adefb9a617d5704c0e51 DavAlo <dave3000ea@gmail.com> 1784430400 -0300	checkout: moving from rama-deploy-ft to main
+aa58940a4ff971fa5157adefb9a617d5704c0e51 f15648a2a739037a0a787d9cdbef9ee5c2c20a80 DavAlo <dave3000ea@gmail.com> 1784430417 -0300	merge origin/rama-deploy-ft: Merge made by the 'ort' strategy.
+f15648a2a739037a0a787d9cdbef9ee5c2c20a80 ecf2b496bb50faca0bff88bcacae6734e891b979 DavAlo <dave3000ea@gmail.com> 1784598191 -0300	checkout: moving from main to dev

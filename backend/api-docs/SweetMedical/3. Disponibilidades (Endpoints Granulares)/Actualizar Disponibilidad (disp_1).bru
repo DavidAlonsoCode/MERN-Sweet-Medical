@@ -1,0 +1,27 @@
+meta {
+  name: Actualizar Disponibilidad (disp_1)
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/medicos/28415932/disponibilidades/disp_1
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "dia": "Lunes",
+    "inicio": "09:00",
+    "fin": "13:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

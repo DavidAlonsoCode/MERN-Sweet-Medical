@@ -1,0 +1,20 @@
+meta {
+  name: Obtener Todos los Médicos (Paginado)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/medicos?page=1&limit=5
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 5
+}
+
+settings {
+  encodeUrl: true
+}

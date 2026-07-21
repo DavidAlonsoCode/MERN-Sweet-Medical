@@ -1,0 +1,28 @@
+meta {
+  name: Crear Notificación
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notificaciones
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "destinatario": "35412890",
+    "remitente": "sistema",
+    "mensaje": "Prueba de notificación para el paciente Pedro García."
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

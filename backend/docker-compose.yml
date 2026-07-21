@@ -1,0 +1,44 @@
+services:
+
+  # Base de datos
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_local
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # Backend
+  backend:
+    build:
+      context: .                  # Busca el Dockerfile en esta ruta
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app                  # Mapea la carpeta actual del backend
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - MONGO_URI=mongodb://mongodb:27017/gestion_turnos_db
+    depends_on:
+      - mongodb                  # Espera a que la BD encienda primero
+
+  # Frontend
+  frontend:
+    build:
+      context: ../2026-1c-frontend-mn-grupo-08       # <--- SUBE una carpeta y entra a 'frontend'
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../2026-1c-frontend-mn-grupo-08:/app         # <--- Mapea la carpeta del frontend externa
+      - /app/node_modules
+
+    depends_on:
+      - backend                # Espera a que el backend encienda primero
+
+volumes:
+  mongo_data:

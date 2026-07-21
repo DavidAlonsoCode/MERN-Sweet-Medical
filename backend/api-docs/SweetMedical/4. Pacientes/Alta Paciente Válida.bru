@@ -1,0 +1,29 @@
+meta {
+  name: Alta Paciente Válida
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/pacientes
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "dni": "45678912",
+    "usuario": "n_paciente",
+    "nombre": "Nuevo Paciente",
+    "obraSocial": "6a03ad88f02e9ee201078196",
+    "plan": "210"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Reprogramar Turno (PATCH horario)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/turnos/6a03e4efed3ea0a3302be6b7
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "fecha": "16-05-2026",
+    "hora": "11:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

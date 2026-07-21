@@ -1,0 +1,20 @@
+meta {
+  name: Dar de Baja
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/pacientes/:dni
+  body: none
+  auth: inherit
+}
+
+params:path {
+  dni: 35123456
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Modificar paciente
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/pacientes/:dni
+  body: json
+  auth: inherit
+}
+
+params:path {
+  dni: 33888777
+}
+
+body:json {
+  {
+    "usuario": "jrrrrrromero",
+    "dni": "33666777"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

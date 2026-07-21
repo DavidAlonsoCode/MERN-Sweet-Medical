@@ -1,0 +1,38 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/ddsw-mn/2026-1c-frontend-mn-grupo-08.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	vscode-merge-base = origin/main
+[branch "fix-filtros-busqueda"]
+	remote = origin
+	merge = refs/heads/fix-filtros-busqueda
+[branch "feature/ui-disponibilidades"]
+	remote = origin
+	merge = refs/heads/feature/ui-disponibilidades
+[branch "feature/historial-turnos"]
+	remote = origin
+	merge = refs/heads/feature/historial-turnos
+	vscode-merge-base = origin/feature/historial-turnos
+[branch "dev"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/dev
+[branch "feature/etiquetas-aria"]
+	vscode-merge-base = origin/dev
+[branch "cambiando_disenio"]
+	vscode-merge-base = origin/dev
+	remote = origin
+	merge = refs/heads/cambiando_disenio
+[branch "rama-deploy-ft"]
+	remote = origin
+	merge = refs/heads/rama-deploy-ft
+	vscode-merge-base = origin/rama-deploy-ft

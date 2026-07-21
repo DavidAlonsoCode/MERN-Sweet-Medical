@@ -1,0 +1,19 @@
+meta {
+  name: Eliminar Especialidad del Médico
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/medicos/28415932/servicios/66415a774f1a2c3d4e5f6a07?tipo=especialidad
+  body: none
+  auth: inherit
+}
+
+params:query {
+  tipo: especialidad
+}
+
+settings {
+  encodeUrl: true
+}

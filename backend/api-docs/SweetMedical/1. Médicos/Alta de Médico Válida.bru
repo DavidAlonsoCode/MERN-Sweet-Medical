@@ -1,0 +1,37 @@
+meta {
+  name: Alta de Médico Válida
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/medicos
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "usuario": "dr_house",
+    "matricula": "28411234",
+    "nombre": "Gregory House",
+    "especialidades": ["6a03ad88f02e9ee20107818e"],
+    "practicas": [],
+    "sedes": ["66415a774f1a2c3d4e5f6d01"],
+    "disponibilidades": [
+      {
+        "dia": "Lunes",
+        "inicio": "08:00",
+        "fin": "14:00"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

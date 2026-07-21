@@ -1,0 +1,26 @@
+meta {
+  name: Dar de Alta Paciente
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/pacientes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "usuario": "gangelo",
+    "dni": "33888777",
+    "nombre": "Gonzalo Angelo",
+    "obraSocial": "Galeno",
+    "plan": "330"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

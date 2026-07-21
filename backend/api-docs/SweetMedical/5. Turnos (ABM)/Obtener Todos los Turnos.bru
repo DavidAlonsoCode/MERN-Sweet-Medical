@@ -1,0 +1,15 @@
+meta {
+  name: Obtener Todos los Turnos
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/turnos
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

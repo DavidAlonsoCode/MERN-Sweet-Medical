@@ -1,0 +1,22 @@
+meta {
+  name: Marcar Notificación como Leída
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/notificaciones/6a04e5e795e247dde5870c1e
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "leida": "true"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

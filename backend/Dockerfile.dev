@@ -1,0 +1,17 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# archivos de dependencias
+COPY package*.json ./
+
+# dependencias de desarrollo
+RUN npm install
+
+# Copiamos el resto del código
+COPY . .
+
+EXPOSE 4000
+
+# tener "nodemon" o "node --watch" en el script "dev" de package.json
+CMD ["npm", "run", "dev"]

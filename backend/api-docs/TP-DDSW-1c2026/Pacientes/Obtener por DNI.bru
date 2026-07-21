@@ -1,0 +1,20 @@
+meta {
+  name: Obtener por DNI
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/pacientes/:dni
+  body: none
+  auth: inherit
+}
+
+params:path {
+  dni: 33888777
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

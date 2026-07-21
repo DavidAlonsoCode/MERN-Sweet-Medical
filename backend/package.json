@@ -1,0 +1,40 @@
+{
+  "name": "2026-1c-backend-grupo-8-1",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Hp1cF9Q4)\r # 2026 1C - TP BACKEND",
+  "homepage": "https://github.com/ddsw-mn/2026-1c-backend-grupo-8-1#readme",
+  "bugs": {
+    "url": "https://github.com/ddsw-mn/2026-1c-backend-grupo-8-1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddsw-mn/2026-1c-backend-grupo-8-1.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.2.0",
+    "mongodb-memory-server": "^11.1.0",
+    "mongoose": "^9.6.2",
+    "node-schedule": "^2.1.1",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "jest-openapi": "^0.14.2",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2"
+  }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Busqueda Turnos
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/turnos/disponibles/busqueda?pacienteDni=38765432
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pacienteDni: 38765432
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Cambiar Fecha/Hora
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/turnos/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+body:json {
+  {
+    "fecha": "11-05-2026",
+    "hora" : "10:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

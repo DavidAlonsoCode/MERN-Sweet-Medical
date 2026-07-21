@@ -1,0 +1,27 @@
+meta {
+  name: Búsqueda Exhaustiva (Múltiples Filtros)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/turnos/disponibles/busqueda?pacienteDni=35412890&especialidad=Cardiología&medicoMatricula=28415932&sede=Sede Central&fechaDesde=2026-05-14&fechaHasta=2026-05-30&sortBy=costo&order=asc&limit=10
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pacienteDni: 35412890
+  especialidad: Cardiología
+  medicoMatricula: 28415932
+  sede: Sede Central
+  fechaDesde: 2026-05-14
+  fechaHasta: 2026-05-30
+  sortBy: costo
+  order: asc
+  limit: 10
+}
+
+settings {
+  encodeUrl: true
+}

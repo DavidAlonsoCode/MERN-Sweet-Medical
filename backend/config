@@ -1,0 +1,33 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/ddsw-mn/2026-1c-backend-mn-grupo-08.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	vscode-merge-base = origin/main
+[branch "dev"]
+	remote = origin
+	merge = refs/heads/dev
+	vscode-merge-base = origin/dev
+[branch "feature/medico-disponibilidades"]
+	remote = origin
+	merge = refs/heads/feature/medico-disponibilidades
+[branch "feature/historial-turnos"]
+	remote = origin
+	merge = refs/heads/feature/historial-turnos
+	vscode-merge-base = origin/feature/historial-turnos
+[branch "refactor-jwt-auth"]
+	remote = origin
+	merge = refs/heads/refactor-jwt-auth
+	vscode-merge-base = origin/refactor-jwt-auth
+[branch "rama-deploy"]
+	remote = origin
+	merge = refs/heads/rama-deploy
+	vscode-merge-base = origin/rama-deploy

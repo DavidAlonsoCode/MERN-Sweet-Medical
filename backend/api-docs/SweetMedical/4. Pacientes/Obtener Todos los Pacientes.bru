@@ -1,0 +1,15 @@
+meta {
+  name: Obtener Todos los Pacientes
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/pacientes
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

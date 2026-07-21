@@ -1,0 +1,30 @@
+meta {
+  name: Agendar Turno Válido
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/turnos
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "pacienteDni": "35412890",
+    "medicoMatricula": "28415932",
+    "sede": "66415a774f1a2c3d4e5f6d01",
+    "especialidad": "6a03ad88f02e9ee20107818e",
+    "fecha": "15-05-2026",
+    "hora": "09:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

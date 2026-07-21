@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@layer base {
+    body {
+        @apply antialiased text-foreground;
+    }
+}
+
+.fondo-sweet {
+    /* este es el estilo del fondo de la pagina, le pongo un gradiente transparente para que la imagen de fondo se vea bien y con onda corporativa */
+    background-image:
+        linear-gradient(rgba(240, 249, 255, 0.05), rgba(255, 255, 255, 0.15)),
+        url('../public/fondoPC.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: transparent !important;
+}
+
+/* efecto vidrio esmerilado para las tarjetas asi se ve mas moderno y limpio */
+.bg-card,
+.bg-content1:not([role="tablist"]) {
+    background-color: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* arreglo visual para que las pestañas de navegacion (las tabs de HeroUI) no se pisen con el fondo esmerilado de las tarjetas */
+[data-slot="tabList"].bg-content1 {
+    background-color: unset !important;
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+    border: unset;
+    box-shadow: unset;
+}

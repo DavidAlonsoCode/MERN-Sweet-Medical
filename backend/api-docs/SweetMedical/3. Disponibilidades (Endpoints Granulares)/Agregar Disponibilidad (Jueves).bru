@@ -1,0 +1,27 @@
+meta {
+  name: Agregar Disponibilidad (Jueves)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/medicos/28415932/disponibilidades
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "dia": "Jueves",
+    "inicio": "10:00",
+    "fin": "14:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

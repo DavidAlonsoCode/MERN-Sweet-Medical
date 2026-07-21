@@ -1,0 +1,582 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sweet Medical - API (Entrega 3)",
+    "description": "Documentación interactiva de la API para el Trabajo Práctico de Desarrollo de Software. Incluye gestión de pacientes, médicos, turnos, notificaciones, maestros y autenticación con JWT.",
+    "version": "3.0.0",
+    "contact": {
+      "name": "Grupo 8"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Servidor Local (API)"
+    }
+  ],
+  "tags": [
+    { "name": "Sistema" },
+    { "name": "Auth" },
+    { "name": "Maestros" },
+    { "name": "Pacientes" },
+    { "name": "Médicos" },
+    { "name": "Disponibilidades" },
+    { "name": "Servicios" },
+    { "name": "Turnos" },
+    { "name": "Notificaciones" }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "LoginInput": {
+        "type": "object",
+        "required": ["usuario", "password"],
+        "properties": {
+          "usuario": { "type": "string", "example": "p_garcia" },
+          "password": { "type": "string", "example": "123456" }
+        }
+      },
+      "Paciente": {
+        "type": "object",
+        "properties": {
+          "dni": { "type": "string" },
+          "usuario": { "type": "string" },
+          "nombre": { "type": "string" },
+          "obraSocial": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "nombre": { "type": "string" }
+            }
+          },
+          "plan": { "type": "string" }
+        }
+      },
+      "PacienteInput": {
+        "type": "object",
+        "required": ["dni", "usuario", "password", "nombre"],
+        "properties": {
+          "dni": { "type": "string", "example": "35123456" },
+          "usuario": { "type": "string", "example": "dalonso" },
+          "password": { "type": "string", "example": "123456" },
+          "nombre": { "type": "string", "example": "David Alonso" },
+          "obraSocial": { "type": "string", "description": "ID de la Obra Social" },
+          "plan": { "type": "string", "example": "210" }
+        }
+      },
+      "PacienteUpdateInput": {
+        "type": "object",
+        "properties": {
+          "nombre": { "type": "string" },
+          "usuario": { "type": "string" },
+          "obraSocial": { "type": "string" },
+          "plan": { "type": "string" }
+        }
+      },
+      "Medico": {
+        "type": "object",
+        "properties": {
+          "matricula": { "type": "string" },
+          "usuario": { "type": "string" },
+          "nombre": { "type": "string" },
+          "especialidades": { "type": "array", "items": { "type": "object" } },
+          "practicas": { "type": "array", "items": { "type": "object" } },
+          "sedes": { "type": "array", "items": { "type": "object" } },
+          "disponibilidades": { "type": "array", "items": { "$ref": "#/components/schemas/Disponibilidad" } }
+        }
+      },
+      "MedicoInput": {
+        "type": "object",
+        "required": ["matricula", "usuario", "password", "nombre"],
+        "properties": {
+          "matricula": { "type": "string" },
+          "usuario": { "type": "string" },
+          "password": { "type": "string" },
+          "nombre": { "type": "string" },
+          "especialidades": { "type": "array", "items": { "type": "string" } },
+          "practicas": { "type": "array", "items": { "type": "string" } },
+          "sedes": { "type": "array", "items": { "type": "string" } },
+          "disponibilidades": { "type": "array", "items": { "$ref": "#/components/schemas/DisponibilidadInput" } }
+        }
+      },
+      "MedicoUpdateInput": {
+        "type": "object",
+        "properties": {
+          "nombre": { "type": "string" }
+        }
+      },
+      "Disponibilidad": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "dia": { "type": "string", "enum": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"] },
+          "inicio": { "type": "string", "example": "09:00" },
+          "fin": { "type": "string", "example": "13:00" }
+        }
+      },
+      "DisponibilidadInput": {
+        "type": "object",
+        "required": ["dia", "inicio", "fin"],
+        "properties": {
+          "dia": { "type": "string" },
+          "inicio": { "type": "string", "example": "10:00" },
+          "fin": { "type": "string", "example": "14:00" }
+        }
+      },
+      "ServicioInput": {
+        "type": "object",
+        "required": ["tipo", "id", "duracionMinutos", "costo"],
+        "properties": {
+          "tipo": { "type": "string", "enum": ["especialidad", "practica"] },
+          "id": { "type": "string" },
+          "duracionMinutos": { "type": "integer" },
+          "costo": { "type": "integer" }
+        }
+      },
+      "ServicioUpdateInput": {
+        "type": "object",
+        "properties": {
+          "tipo": { "type": "string", "enum": ["especialidad", "practica"] },
+          "duracionMinutos": { "type": "integer" },
+          "costo": { "type": "integer" }
+        }
+      },
+      "Turno": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "pacienteDni": { "type": "string" },
+          "medicoMatricula": { "type": "string" },
+          "especialidad": { "type": "object" },
+          "practica": { "type": "object" },
+          "sede": { "type": "object" },
+          "fechaHora": { "type": "string", "format": "date-time" },
+          "estado": { "type": "string", "enum": ["RESERVADO", "CANCELADO", "REALIZADO"] }
+        }
+      },
+      "TurnoInput": {
+        "type": "object",
+        "required": ["pacienteDni", "medicoMatricula", "sede", "fecha", "hora"],
+        "properties": {
+          "pacienteDni": { "type": "string" },
+          "medicoMatricula": { "type": "string" },
+          "sede": { "type": "string" },
+          "especialidad": { "type": "string" },
+          "practica": { "type": "string" },
+          "fecha": { "type": "string", "example": "15-05-2026" },
+          "hora": { "type": "string", "example": "10:30" }
+        }
+      },
+      "TurnoCambioInput": {
+        "type": "object",
+        "required": ["fecha", "hora"],
+        "properties": {
+          "fecha": { "type": "string", "example": "16-05-2026" },
+          "hora": { "type": "string", "example": "11:00" }
+        }
+      },
+      "Notificacion": {
+        "type": "object",
+        "properties": {
+          "_id": { "type": "string" },
+          "destinatario": { "type": "string" },
+          "remitente": { "type": "string" },
+          "mensaje": { "type": "string" },
+          "fechaCreacion": { "type": "string", "format": "date-time" },
+          "fechaLeida": { "type": "string", "format": "date-time" },
+          "leida": { "type": "boolean" }
+        }
+      },
+      "NotificacionInput": {
+        "type": "object",
+        "required": ["destinatario", "remitente", "mensaje"],
+        "properties": {
+          "destinatario": { "type": "string" },
+          "remitente": { "type": "string" },
+          "mensaje": { "type": "string" }
+        }
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "totalItems": { "type": "integer" },
+          "itemsPerPage": { "type": "integer" },
+          "currentPage": { "type": "integer" },
+          "totalPages": { "type": "integer" }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "tags": ["Sistema"],
+        "summary": "Verificar estado de la aplicación",
+        "responses": {
+          "200": { "description": "App ejecutando correctamente" }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Iniciar sesión (Médico o Paciente)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LoginInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login exitoso. Devuelve JWT." },
+          "401": { "description": "Credenciales inválidas" }
+        }
+      }
+    },
+    "/maestros/especialidades": {
+      "get": {
+        "tags": ["Maestros"],
+        "summary": "Obtener catálogo de especialidades",
+        "responses": { "200": { "description": "Lista de especialidades" } }
+      }
+    },
+    "/maestros/practicas": {
+      "get": {
+        "tags": ["Maestros"],
+        "summary": "Obtener catálogo de prácticas",
+        "responses": { "200": { "description": "Lista de prácticas" } }
+      }
+    },
+    "/maestros/sedes": {
+      "get": {
+        "tags": ["Maestros"],
+        "summary": "Obtener catálogo de sedes",
+        "responses": { "200": { "description": "Lista de sedes" } }
+      }
+    },
+    "/maestros/obras-sociales": {
+      "get": {
+        "tags": ["Maestros"],
+        "summary": "Obtener catálogo de obras sociales",
+        "responses": { "200": { "description": "Lista de obras sociales" } }
+      }
+    },
+    "/pacientes": {
+      "get": {
+        "tags": ["Pacientes"],
+        "summary": "Listar pacientes paginados",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 10 } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de pacientes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Paciente" } },
+                    "meta": { "$ref": "#/components/schemas/PaginationMeta" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Pacientes"],
+        "summary": "Dar de alta un nuevo paciente",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PacienteInput" } } }
+        },
+        "responses": { "201": { "description": "Paciente creado" } }
+      }
+    },
+    "/pacientes/{dni}": {
+      "get": {
+        "tags": ["Pacientes"],
+        "summary": "Obtener paciente por DNI",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "dni", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Datos del paciente" } }
+      },
+      "put": {
+        "tags": ["Pacientes"],
+        "summary": "Actualizar datos de un paciente",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "dni", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PacienteUpdateInput" } } } },
+        "responses": { "200": { "description": "Paciente actualizado" } }
+      },
+      "delete": {
+        "tags": ["Pacientes"],
+        "summary": "Borrar paciente (lógico)",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "dni", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "204": { "description": "Paciente borrado exitosamente" } }
+      }
+    },
+    "/medicos": {
+      "get": {
+        "tags": ["Médicos"],
+        "summary": "Listar médicos con filtros",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 10 } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de médicos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Medico" } },
+                    "meta": { "$ref": "#/components/schemas/PaginationMeta" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Médicos"],
+        "summary": "Dar de alta un médico",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MedicoInput" } } }
+        },
+        "responses": { "201": { "description": "Médico creado" } }
+      }
+    },
+    "/medicos/{matricula}": {
+      "get": {
+        "tags": ["Médicos"],
+        "summary": "Obtener médico por matrícula",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Datos del médico" } }
+      },
+      "put": {
+        "tags": ["Médicos"],
+        "summary": "Actualizar médico",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MedicoUpdateInput" } } } },
+        "responses": { "200": { "description": "Médico actualizado" } }
+      },
+      "delete": {
+        "tags": ["Médicos"],
+        "summary": "Borrado lógico de un médico",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "204": { "description": "Eliminado exitosamente" } }
+      }
+    },
+    "/medicos/{matricula}/disponibilidades": {
+      "get": {
+        "tags": ["Disponibilidades"],
+        "summary": "Obtener horarios de un médico",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Array de disponibilidades" } }
+      },
+      "post": {
+        "tags": ["Disponibilidades"],
+        "summary": "Agregar un nuevo bloque horario",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DisponibilidadInput" } } } },
+        "responses": { "201": { "description": "Disponibilidad agregada" } }
+      }
+    },
+    "/medicos/{matricula}/disponibilidades/{idDisp}": {
+      "put": {
+        "tags": ["Disponibilidades"],
+        "summary": "Modificar un bloque horario",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "idDisp", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": { "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DisponibilidadInput" } } } },
+        "responses": { "204": { "description": "Actualizado" } }
+      },
+      "delete": {
+        "tags": ["Disponibilidades"],
+        "summary": "Eliminar un bloque horario",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "idDisp", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "204": { "description": "Eliminado" } }
+      }
+    },
+    "/medicos/{matricula}/servicios": {
+      "post": {
+        "tags": ["Servicios"],
+        "summary": "Agregar especialidad o práctica al médico",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServicioInput" } } } },
+        "responses": { "201": { "description": "Servicio agregado" } }
+      }
+    },
+    "/medicos/{matricula}/servicios/{idServicio}": {
+      "put": {
+        "tags": ["Servicios"],
+        "summary": "Modificar precio o duración",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "idServicio", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServicioUpdateInput" } } } },
+        "responses": { "204": { "description": "Actualizado" } }
+      },
+      "delete": {
+        "tags": ["Servicios"],
+        "summary": "Eliminar servicio del médico",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "matricula", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "idServicio", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "tipo", "in": "query", "required": true, "schema": { "type": "string", "enum": ["especialidad", "practica"] } }
+        ],
+        "responses": { "204": { "description": "Eliminado" } }
+      }
+    },
+    "/turnos": {
+      "get": {
+        "tags": ["Turnos"],
+        "summary": "Listar turnos registrados",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 10 } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de turnos paginada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Turno" } },
+                    "meta": { "$ref": "#/components/schemas/PaginationMeta" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Turnos"],
+        "summary": "Agendar un nuevo turno",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TurnoInput" } } } },
+        "responses": { "201": { "description": "Turno reservado" } }
+      }
+    },
+    "/turnos/disponibles": {
+      "get": {
+        "tags": ["Turnos"],
+        "summary": "Motor de búsqueda de turnos disponibles",
+        "description": "Cruza la agenda del médico con la cobertura del paciente para devolver slots libres y costos.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "pacienteDni", "in": "query", "required": true, "schema": { "type": "string" } },
+          { "name": "especialidad", "in": "query", "schema": { "type": "string" } },
+          { "name": "practica", "in": "query", "schema": { "type": "string" } },
+          { "name": "medicoMatricula", "in": "query", "schema": { "type": "string" } },
+          { "name": "sede", "in": "query", "schema": { "type": "string" } },
+          { "name": "fechaDesde", "in": "query", "schema": { "type": "string", "format": "date" } },
+          { "name": "fechaHasta", "in": "query", "schema": { "type": "string", "format": "date" } },
+          { "name": "sortBy", "in": "query", "schema": { "type": "string", "enum": ["fecha", "costo"] } },
+          { "name": "order", "in": "query", "schema": { "type": "string", "enum": ["asc", "desc"] } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 10 } },
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } }
+        ],
+        "responses": { "200": { "description": "Slots disponibles encontrados" } }
+      }
+    },
+    "/turnos/{id}": {
+      "get": {
+        "tags": ["Turnos"],
+        "summary": "Obtener detalle del turno",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "OK" } }
+      },
+      "patch": {
+        "tags": ["Turnos"],
+        "summary": "Reprogramar turno (modificar fecha/hora)",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TurnoCambioInput" } } } },
+        "responses": { "200": { "description": "Reprogramado" } }
+      },
+      "delete": {
+        "tags": ["Turnos"],
+        "summary": "Cancelar turno",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Cancelado" } }
+      }
+    },
+    "/notificaciones": {
+      "get": {
+        "tags": ["Notificaciones"],
+        "summary": "Obtener notificaciones",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "destinatario", "in": "query", "schema": { "type": "string" } },
+          { "name": "leida", "in": "query", "schema": { "type": "boolean" } }
+        ],
+        "responses": { "200": { "description": "Lista de notificaciones" } }
+      },
+      "post": {
+        "tags": ["Notificaciones"],
+        "summary": "Crear una nueva notificación",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotificacionInput" } } } },
+        "responses": { "201": { "description": "Notificación creada" } }
+      }
+    },
+    "/notificaciones/{id}": {
+      "patch": {
+        "tags": ["Notificaciones"],
+        "summary": "Marcar notificación como leída",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "leida": { "type": "boolean", "example": true } } }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Notificación actualizada" } }
+      }
+    }
+  }
+}

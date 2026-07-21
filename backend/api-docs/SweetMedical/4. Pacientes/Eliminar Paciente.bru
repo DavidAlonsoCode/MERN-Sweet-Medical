@@ -1,0 +1,15 @@
+meta {
+  name: Eliminar Paciente
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/pacientes/45678912
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
